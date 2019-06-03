@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import gql from 'graphql-tag';
+import LaunchesUI from './UI/Launches'
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
 
@@ -15,27 +16,43 @@ const Launches_query = gql `
 `
 
 const Header = styled.h1`
-  color: black;
-  font-size: 1.3em;
+  color: white;
+  font-size: 1.9em;
+  text-align: center;
 `
+const Container = styled.div`
+  display:flex;
+  flex-direction: column;
+`
+const ContainerCards = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+`
+
 
 export class Launches extends Component {
   render() {
     return (
-      <div>
+      <Container>
         <Header>Launches</Header>
         <Query query={Launches_query}>
           {
             ({ loading, error, data}) => {
               if(loading) return <h4>loading...</h4>
               if(error) console.log(error);
-              console.log(data)
-              return <h1>prueba</h1>
+              return (
+                <ContainerCards>
+                <LaunchesUI data={data} />
+                </ContainerCards>
+              )
             }
           }
 
         </Query>
-      </div>
+      </Container>
     )
   }
 }
