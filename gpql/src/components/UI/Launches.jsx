@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
 import classNames from 'classnames';
+import Moment from 'react-moment'
 
 const Card = styled.div`
   background-color: white;
+  border-radius: 1em;
   width: 80%;
   height: 10em;
   margin: 1em;
@@ -38,7 +40,7 @@ const Launches = (props) => {
               'has-text-danger': !launch.launch_success})}>{launch.mission_name}</Span></p>
             </header>
               <CardContainer className="card-content">
-              <p>Date: {launch.launch_date_local}</p>
+              <p>Date: <Moment format="YYYY-DD-MM HH:mm">{launch.launch_date_local}</Moment> </p>
               </CardContainer>
               <Button className="button is-info">More info</Button>
           </Card>

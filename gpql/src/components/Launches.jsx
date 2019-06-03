@@ -31,6 +31,14 @@ const ContainerCards = styled.div`
   justify-content: center;
 
 `
+const Info = styled.div`
+  text-align: center;
+  color: white;
+  * {
+    margin-left: .5em;
+  }
+
+`
 
 
 export class Launches extends Component {
@@ -38,6 +46,10 @@ export class Launches extends Component {
     return (
       <Container>
         <Header>Launches</Header>
+        <Info>
+        <span><i className="fas fa-square has-text-success"></i> = success</span>
+        <span><i className="fas fa-square has-text-danger"></i> = failed  </span>
+        </Info>
         <Query query={Launches_query}>
           {
             ({ loading, error, data}) => {
