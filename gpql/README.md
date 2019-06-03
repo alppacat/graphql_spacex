@@ -1,2 +1,0 @@
-## Practica GraphQL y Apollo
-
