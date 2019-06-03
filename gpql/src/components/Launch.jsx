@@ -41,6 +41,9 @@ const Header = styled.h1`
   margin-bottom: 1.5em;
   color: white;
 `
+const Button = styled(Link)`
+  align-self: center;
+`
 
 const Launch = (props) => {
   let { flight_number } = props.match.params;
@@ -61,9 +64,10 @@ const Launch = (props) => {
               <p>Launch year: {data.launch.launch_year}</p>
               <p>Rocket name: { data.launch.rocket.rocket_name }</p>
               <p>Rocket type: {data.launch.rocket.rocket_type }</p>
-
               </div>
         </Message>
+        <Button to="/" className="button is-primary">Go back</Button>
+
         </React.Fragment>
       }
     }
