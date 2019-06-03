@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import classNames from 'classnames';
 import Moment from 'react-moment'
+import { Link } from 'react-router-dom';
 
 const Card = styled.div`
   background-color: white;
@@ -10,7 +11,7 @@ const Card = styled.div`
   height: 10em;
   margin: 1em;
 `
-const Button = styled.a`
+const Button = styled(Link)`
   position: relative;
   left: 5px;
   margin-top: 1.5em;
@@ -30,7 +31,7 @@ const Launches = (props) => {
   console.log(props)
   return (
     props.data.launches.map((launch)=>{
-      console.log(launch)
+      // console.log(launch)
       return (
               <Card className="card" key={launch.flight_number}>
             <header className="card-header">
@@ -42,7 +43,7 @@ const Launches = (props) => {
               <CardContainer className="card-content">
               <p>Date: <Moment format="YYYY-DD-MM HH:mm">{launch.launch_date_local}</Moment> </p>
               </CardContainer>
-              <Button className="button is-info">More info</Button>
+              <Button  to={`/launch/${launch.flight_number}`} className="button is-info"> Details </Button>
           </Card>
       )
     })
