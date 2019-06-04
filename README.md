@@ -5,3 +5,4 @@ Tecnologías usadas:
 + Apollo
 + GraphQL
 + Express
++ Styled Components
